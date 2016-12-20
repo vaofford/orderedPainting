@@ -733,7 +733,8 @@ EOF
   # submit
   #
   echo ${CMD}
-  QSUB_MSG=`${CMD}`
+  #QSUB_MSG=`${CMD}`
+  eval ${CMD}
   if [ $? -ne 0 ]; then 
     echo_fail "Execution error: ${CMD} (step${STEP}) "
   fi
@@ -910,7 +911,8 @@ do
       CMD=${CMD}"  -l ${TARGET_HAP_LIST}"
 
       echo ${CMD}
-      QSUB_MSG=`${CMD}`
+      #QSUB_MSG=`${CMD}`
+      eval ${CMD}
       if [ $? -ne 0 ]; then 
         echo_fail "Execution error: ${CMD} (step${STEP}) "
       fi
@@ -1033,7 +1035,8 @@ do
       CMD=${CMD}"  -l ${TARGET_GZ_LIST}"
 
       echo ${CMD}
-      QSUB_MSG=`${CMD}`
+      #QSUB_MSG=`${CMD}`
+      eval ${CMD}
       if [ $? -ne 0 ]; then 
         echo_fail "Execution error: ${CMD} (step${STEP}) "
       fi

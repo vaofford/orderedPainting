@@ -219,7 +219,8 @@ $QUEUE_TYPE =~ s/ //g;
 if ($QUEUE_TYPE eq "SGE") {
   $QSUB = "qsub -S /bin/bash -cwd -N "; # "-S /bin/bash" is required in SGE
 } elsif ($QUEUE_TYPE eq "LSF") {
-  $QSUB = "bsub -J ";
+#  $QSUB = "bsub -J ";
+  $QSUB = "bsub -M2000 -R'rusage[mem=2000] select[mem>2000]' -J ";
 } else {
   die "Error: uknown QUEUE_TYPE $QUEUE_TYPE";
 }
