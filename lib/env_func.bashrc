@@ -2,11 +2,11 @@
 # definition for your grid engine
 #######################################################################################
 
-QUEUE_TYPE="SGE"
-QSUB_COMMON="qsub -cwd "
+#QUEUE_TYPE="SGE"
+#QSUB_COMMON="qsub -cwd "
 
-#QUEUE_TYPE="LSF"
-#QSUB_COMMON="bsub "
+QUEUE_TYPE="LSF"
+QSUB_COMMON="bsub "
 
 #
 # If you need to increase an upper limit of memory usage,
