@@ -126,7 +126,7 @@ returnQSUB_CMD() {
   if [ "${QUEUE_TYPE}" == "SGE" -o "${QUEUE_TYPE}" == "UGE" ]; then
     QSUB_CMD="${QSUB_COMMON} -o $1.log -e $1.log -N $1"
   elif [ "${QUEUE_TYPE}" == "LSF" ]; then
-    QSUB_CMD="${QSUB_COMMON} -o $1.log -e $1.log -J $1"
+    QSUB_CMD="${QSUB_COMMON}  -M5000 -R'rusage[mem=5000] select[mem>5000]' -o $1.log -e $1.log -J $1"
   fi
   
   if test "$2" = "" ; then
@@ -1264,6 +1264,7 @@ if [ "${SKIP_FLAG}" -eq 0 ]; then
   
   wait_until_finish "${STAMP}"
 
+  sleep 1m
 
   if [ ! -s "${COMBINED_RES_DIR}/${OUTF_SITE_STATS}" ]; then
     echo_fail "Error (step${STEP}): ${COMBINED_RES_DIR}/${OUTF_SITE_STATS} doesn't exist or empty "
