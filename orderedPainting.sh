@@ -1264,7 +1264,7 @@ if [ "${SKIP_FLAG}" -eq 0 ]; then
   
   wait_until_finish "${STAMP}"
 
-  sleep 1m
+  sleep 5m
 
   if [ ! -s "${COMBINED_RES_DIR}/${OUTF_SITE_STATS}" ]; then
     echo_fail "Error (step${STEP}): ${COMBINED_RES_DIR}/${OUTF_SITE_STATS} doesn't exist or empty "
